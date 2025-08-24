@@ -1,0 +1,13 @@
+[data-ru] {
+    font-family: 'Varela Round', sans-serif !important;
+}
+
+.lang-switch a[data-ru] {
+    font-family: 'Varela Round', sans-serif !important;
+}
+
+/* Ensure consistent font weight for Russian text */
+h1[data-ru], h2[data-ru], h3[data-ru], p[data-ru], span[data-ru], a[data-ru] {
+    font-family: 'Varela Round', sans-serif !important;
+    font-weight: inherit;
+}
