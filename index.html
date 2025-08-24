@@ -5,12 +5,17 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kurt & Kurt</title>
+  <meta name="description" content="Kurt & Kurt - ведущий поставщик медицинского оборудования в Кыргызстане. Продажа, сервис и обслуживание диагностического оборудования от ведущих мировых производителей. МРТ, КТ, УЗИ, рентген оборудование.">
+  <meta name="keywords" content="медицинское оборудование, диагностическое оборудование, медицинский сервис, здравоохранение, Кыргызстан, Бишкек, МРТ, КТ, УЗИ, рентген, Kurt & Kurt">
+  <meta name="author" content="Kurt & Kurt LLC">
   <meta name="robots" content="index, follow">
-  <meta name="keywords" content="Медицинское оборудование МРТ КТ УЗИ продажа ремонт обслуживание" />
-  <meta name="description" content="Продажа, ремонт, обслуживание медицинского оборудования: МРТ, КТ, УЗИ аппаратов и др." />
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <meta property="og:title" content="Kurt & Kurt - Медицинское оборудование">
+  <meta property="og:description" content="Ведущий поставщик медицинского оборудования в Кыргызстане. Продажа и обслуживание диагностического оборудования.">
+  <meta property="og:image" content="img/logo.png">
+  <meta property="og:url" content="https://kurtandkurt.kg">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Kurt & Kurt - Поставка и обслуживание медицинского оборудования в Кыргызстане</title>
+  <link rel="canonical" href="https://kurtandkurt.kg">
   <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -18,6 +23,191 @@
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/queries.css" rel="stylesheet">
   <link href="css/animate.css" rel="stylesheet">
+  <link href="css/components/header.css" rel="stylesheet">
+  <link href="css/components/language-switcher.css" rel="stylesheet">
+  <link href="css/components/floating-button.css" rel="stylesheet">
+  <link href="css/components/clients-grid.css" rel="stylesheet">
+  
+  <style>
+    /* Mobile Header Styles */
+    @media (max-width: 767px) {
+      .header_wrapper {
+        width: 100%;
+        padding: 10px 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .header_logo {
+        padding-left: 15px;
+        flex: 0 0 auto;
+      }
+
+      .header_logo img {
+        max-height: 40px;
+        width: auto;
+      }
+
+      .nav.navbar-nav.navbar-right {
+        flex: 0 1 auto;
+        margin: 0;
+        padding-right: 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        background: transparent;
+      }
+
+      .nav.navbar-nav.navbar-right li {
+        margin: 0 5px;
+      }
+
+      .nav.navbar-nav.navbar-right li a {
+        padding: 8px;
+        font-size: 13px;
+        white-space: nowrap;
+        display: block;
+      }
+
+      #section_header {
+        position: sticky;
+        top: 0;
+        background: white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 1000;
+        width: 100%;
+      }
+    }
+
+    /* Clients Grid Styles */
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .client-card {
+      perspective: 1000px;
+      height: 280px;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .client-card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .card-front {
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card-back {
+      background: #f8f9fa;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .client-image {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .client-image img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+
+    .card-back h2 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .client-description {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 767px) {
+      .clients-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 15px;
+      }
+
+      .client-card {
+        height: 250px;
+      }
+
+      .card-back h2 {
+        font-size: 16px;
+      }
+
+      .client-description {
+        font-size: 13px;
+      }
+    }
+
+    /* Extra small devices */
+    @media (max-width: 480px) {
+      .nav.navbar-nav.navbar-right li {
+        margin: 0 2px;
+      }
+
+      .nav.navbar-nav.navbar-right li a {
+        padding: 8px 4px;
+        font-size: 12px;
+      }
+
+      .lang-switch {
+        margin-left: 5px;
+      }
+
+      .lang-btn {
+        padding: 4px 6px;
+        font-size: 12px;
+      }
+
+      .header_logo img {
+        max-height: 35px;
+      }
+    }
+  </style>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -35,31 +225,32 @@
             <img src="img/logo.png">
           </div>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#about">About Us </a> </li>
-            <li><a href="#services">Services</a> </li>
-            <li><a href="#contact">Contacts</a> </li>
+            <li class="lang-switch"><a href="#" onclick="toggleLanguage(); return false;"><span class="current-lang">EN</span></a></li>
+            <li><a href="#about" data-en="About Us" data-ru="О нас">About Us</a></li>
+            <li><a href="#services" data-en="Services" data-ru="Услуги">Services</a></li>
+            <li><a href="#contact" data-en="Contacts" data-ru="Контакты">Contacts</a></li>
           </ul>
         </div>
       </div>
     </nav>
   </header>
-  <section id="hero" class="hero_wrapper">
+  <section id="hero" class="hero_wrapper" aria-label="Welcome Section">
     <div class="hero_inner">
       <div class="hero_image">
-        <img src="img/hero-bg.jpg">
+        <img src="img/hero-bg.jpg" alt="Kurt & Kurt Medical Equipment Showcase" role="presentation">
       </div>
       <div class="hero_text">
         <div class="row">
           <div class="col-md-8 col-md-offset-2 text-center">
-            <h1 class="animated fadeInDown hero_title">Kurt & Kurt</h1>
-            <p class="animated fadeInUp delay-05s hero_desc"> offers unique solutions based on exclusive and long-term distribution
+            <h1 class="animated fadeInDown hero_title" itemprop="name">Kurt & Kurt</h1>
+            <p class="animated fadeInUp delay-05s hero_desc" itemprop="description"> offers unique solutions based on exclusive and long-term distribution
               agreements with the world's leading manufacturers, on invaluable experience and high level of staff skills.
             </p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 col-md-offset-3 text-center">
-            <a href="#contact" class="learn-more-btn">Contacts</a>
+            <a href="#contact" class="learn-more-btn" data-en="Contacts" data-ru="Контакты">Contacts</a>
           </div>
         </div>
       </div>
@@ -81,54 +272,53 @@
       </div>
     </div>
   </section>
-  <section class="features text-center section-padding" id="services">
+  <section class="features text-center section-padding" id="services" aria-labelledby="services-title">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="arrow">Our services</h1>
-          <div class="features-wrapper">
-            <div class="col-md-4 wp2">
+          <h1 class="arrow" id="services-title">Our services</h1>
+          <div class="features-wrapper" role="list">
+            <div class="col-md-4 wp2" role="listitem" itemscope itemtype="https://schema.org/Service">
               <div class="icon">
-                <img src="img/mri logo1.png">
+                <img src="img/mri logo1.png" alt="Medical Equipment Supply Service Icon" itemprop="image">
               </div>
-              <h2>Supply</h2>
-              <p>Supply of medical diagnostic equipment</p>
+              <h2 data-en="Supply" data-ru="Поставка" itemprop="name">Supply</h2>
+              <p data-en="Professional supply of cutting-edge medical diagnostic equipment from world-leading manufacturers. We ensure complete documentation, customs clearance, and installation services." data-ru="Профессиональная поставка современного медицинского диагностического оборудования от ведущих мировых производителей. Мы обеспечиваем полное документальное сопровождение, таможенную очистку и услуги по установке.">Professional supply of cutting-edge medical diagnostic equipment from world-leading manufacturers. We ensure complete documentation, customs clearance, and installation services.</p>
             </div>
             <div class="col-md-4 wp2 delay-05s">
               <div class="icon">
                 <img src="img/leasing icon.png">
               </div>
-              <h2>Leasing</h2>
-              <p>Equipment sale on leasing/leaseback</p>
+              <h2 data-en="Leasing" data-ru="Лизинг">Leasing</h2>
+              <p data-en="Flexible financing solutions with equipment leasing and leaseback options. We work with major financial institutions to provide the most favorable terms for our clients." data-ru="Гибкие финансовые решения с возможностью лизинга и возвратного лизинга оборудования. Мы работаем с крупными финансовыми учреждениями, чтобы предоставить нашим клиентам наиболее выгодные условия.">Flexible financing solutions with equipment leasing and leaseback options. We work with major financial institutions to provide the most favorable terms for our clients.</p>
             </div>
             <div class="col-md-4 wp2 delay-1s">
               <div class="icon">
                 <img src="img/services.png">
               </div>
-              <h2>Service</h2>
-              <p>Warranty and post-warranty service
-                Repair of medical equipment of any complexity</p>
+              <h2 data-en="Service" data-ru="Сервис">Service</h2>
+              <p data-en="Comprehensive warranty and post-warranty service with 24/7 technical support. Our certified engineers handle repairs of any complexity, ensuring minimal downtime for your equipment." data-ru="Комплексное гарантийное и постгарантийное обслуживание с круглосуточной технической поддержкой. Наши сертифицированные инженеры выполняют ремонт любой сложности, обеспечивая минимальное время простоя оборудования.">Comprehensive warranty and post-warranty service with 24/7 technical support. Our certified engineers handle repairs of any complexity, ensuring minimal downtime for your equipment.</p>
             </div>
             <div class="col-md-4 wp2">
               <div class="icon">
                 <img src="img/control icon.png">
               </div>
-              <h2>Control</h2>
-              <p>Monitoring of the technical condition of medical equipment</p>
+              <h2 data-en="Control" data-ru="Контроль">Control</h2>
+              <p data-en="Monitoring of the technical condition of medical equipment" data-ru="Мониторинг технического состояния медицинского оборудования">Monitoring of the technical condition of medical equipment</p>
             </div>
             <div class="col-md-4 wp2 delay-05s">
               <div class="icon">
                 <img src="img/trainig.png">
               </div>
-              <h2>Training</h2>
-              <p>Training for physicians and operators</p>
+              <h2 data-en="Training" data-ru="Обучение">Training</h2>
+              <p data-en="Training for physicians and operators" data-ru="Обучение врачей и операторов">Training for physicians and operators</p>
             </div>
             <div class="col-md-4 wp2 delay-1s">
               <div class="icon">
                 <img src="img/registration icon.png">
               </div>
-              <h2>Registration</h2>
-              <p>Registration of medical devices with state authorities</p>
+              <h2 data-en="Registration" data-ru="Регистрация">Registration</h2>
+              <p data-en="Registration of medical devices with state authorities" data-ru="Регистрация медицинских изделий в государственных органах">Registration of medical devices with state authorities</p>
             </div>
             <div class="clearfix"></div>
           </div>
@@ -153,15 +343,15 @@
             <div id="servicesSlider">
               <ul class="slides">
                 <li>
-                  <h1 class="arrow">Our mission</h1>
-                  <p>
+                  <h1 class="arrow" data-en="Our mission" data-ru="Наша миссия">Our mission</h1>
+                  <p data-en="Provide customers with high-quality equipment from the world's leading manufacturers. Treat customers not as buyers, but as partners." data-ru="Обеспечивать клиентов высококачественным оборудованием от ведущих мировых производителей. Относиться к клиентам не как к покупателям, а как к партнерам.">
                     Provide customers with high-quality equipment from the world's leading manufacturers.
                     Treat customers not as buyers, but as partners.
                   </p>
-                  <p>
+                  <p data-en="To continuously improve the quality of technical service and after-sales support." data-ru="Постоянно повышать качество технического обслуживания и послепродажной поддержки.">
                     To continuously improve the quality of technical service and after-sales support.
                   </p>
-                  <p>
+                  <p data-en="We believe that success is not a final destination, but a journey in itself." data-ru="Мы верим, что успех - это не конечный пункт назначения, а путешествие.">
                     We believe that success is not a final destination, but a journey in itself.
                   </p>
                 </li>
@@ -172,128 +362,157 @@
       </div>
     </div>
   </section>
-  <section class="portfolio text-center section-padding" id="portfolio">
+  <section class="portfolio text-center section-padding" id="portfolio" aria-labelledby="clients-title">
     <div class="container">
       <div class="row">
-        <div id="portfolioSlider">
-          <h1 class="arrow">Our clients</h1>
-          <ul class="slides">
-            <li>
-              <div class="col-md-4 wp4">
-                <div class="overlay-effect effects clearfix">
-                  <div class="img">
-                    <img src="img/healthkg.png" alt="Portfolio Item">                    
-                  </div>
+        <h1 class="arrow" id="clients-title" data-en="Our clients" data-ru="Наши клиенты">Our clients</h1>
+        <div class="clients-grid" role="list" itemscope itemtype="https://schema.org/ItemList">
+          <div class="client-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="client-image">
+                  <img src="img/healthkg.png" alt="Ministry of Health">
                 </div>
-                <h2>Ministry of Health of the Kyrgyz Repulic</h2>
-                <p></p>
               </div>
-              <div class="col-md-4 wp4 delay-05s">
-                <div class="overlay-effect effects clearfix">
-                  <div class="img">
-                    <img src="img/urfa.png" alt="Portfolio Item">                    
-                  </div>
+              <div class="card-back">
+                <h2 data-en="Ministry of Health of the Kyrgyz Repulic" data-ru="Министерство здравоохранения Кыргызской Республики">Ministry of Health of the Kyrgyz Repulic</h2>
+                <p class="client-description" data-en="Strategic partner in healthcare development" data-ru="Стратегический партнер в развитии здравоохранения">Strategic partner in healthcare development</p>
+              </div>
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="client-image">
+                  <img src="img/urfa.png" alt="URFA">
                 </div>
-                <h2>Diagnostics Center "URFA"</h2>
-                <p></p>
               </div>
-              <div class="col-md-4 wp4 delay-1s">
-                <div class="overlay-effect effects clearfix">
-                  <div class="img">
-                    <img src="img/embassyOfJapan.jpg" alt="Portfolio Item">                    
-                  </div>
+              <div class="card-back">
+                <h2 data-en="Diagnostics Center 'URFA'" data-ru="Диагностический центр 'ЮРФА'">Diagnostics Center "URFA"</h2>
+                <p class="client-description" data-en="Advanced diagnostic services" data-ru="Передовые диагностические услуги">Advanced diagnostic services</p>
+              </div>
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="client-image">
+                  <img src="img/embassyOfJapan.jpg" alt="Embassy of Japan">
                 </div>
-                <h2>Embassy of Japan to the Kyrgyz Republic</h2>
-                <p></p>
               </div>
-            </li>
-            <li>
-              <div class="col-md-4 wp4">
-                <div class="overlay-effect effects clearfix">
-                  <div class="img">
-                    <img src="img/jica1.png" alt="Portfolio Item">                    
-                  </div>
+              <div class="card-back">
+                <h2 data-en="Embassy of Japan to the Kyrgyz Republic" data-ru="Посольство Японии в Кыргызской Республике">Embassy of Japan to the Kyrgyz Republic</h2>
+                <p class="client-description" data-en="International cooperation partner" data-ru="Партнер по международному сотрудничеству">International cooperation partner</p>
+              </div>
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="client-image">
+                  <img src="img/jica1.png" alt="JICA">
                 </div>
-                <h2>JICA (Japan International Cooperation Agency)</h2>
-                <p></p>
               </div>
-              <div class="col-md-4 wp4 delay-05s">
-                <div class="overlay-effect effects clearfix">
-                  <div class="img">
-                    <img src="img/tika.jpg" alt="Portfolio Item">                    
-                  </div>
+              <div class="card-back">
+                <h2 data-en="JICA (Japan International Cooperation Agency)" data-ru="JICA (Японское агентство международного сотрудничества)">JICA</h2>
+                <p class="client-description" data-en="Development cooperation projects" data-ru="Проекты сотрудничества в области развития">Development cooperation projects</p>
+              </div>
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="client-image">
+                  <img src="img/tika.jpg" alt="TIKA">
                 </div>
-                <h2>TIKA (Turkish Development Agency)</h2>
-                <p></p>
               </div>
-              <div class="col-md-4 wp4 delay-1s">
-                <div class="overlay-effect effects clearfix">
-                  <div class="img">
-                    <img src="img/vedanta1.png" alt="Portfolio Item">                    
-                  </div>
+              <div class="card-back">
+                <h2 data-en="TIKA (Turkish Development Agency)" data-ru="TIKA (Турецкое агентство по сотрудничеству)">TIKA</h2>
+                <p class="client-description" data-en="International development partner" data-ru="Международный партнер по развитию">International development partner</p>
+              </div>
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="client-image">
+                  <img src="img/vedanta1.png" alt="Vedanta">
                 </div>
-                <h2>Vedanta Medical Center</h2>
-                <p></p>
               </div>
-            </li>
-            <li>
-              <div class="col-md-4 wp4">
-                <div class="overlay-effect effects clearfix">
-                  <div class="img">
-                    <img src="img/pediatri.png" alt="Portfolio Item">                    
-                  </div>
+              <div class="card-back">
+                <h2 data-en="Vedanta Medical Center" data-ru="Медицинский центр Веданта">Vedanta Medical Center</h2>
+                <p class="client-description" data-en="Modern medical solutions" data-ru="Современные медицинские решения">Modern medical solutions</p>
+              </div>
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="client-image">
+                  <img src="img/pediatri.png" alt="Pediatric Care">
                 </div>
-                <h2>Pediatric Care Service</h2>
-                <p></p>
               </div>
-              <div class="col-md-4 wp4 delay-05s">
-                <div class="overlay-effect effects clearfix">
-                  <div class="img">
-                    <img src="img/cardio bishkek.png" alt="Portfolio Item">                    
-                  </div>
+              <div class="card-back">
+                <h2 data-en="Pediatric Care Service" data-ru="Педиатрическая служба">Pediatric Care Service</h2>
+                <p class="client-description" data-en="Specialized pediatric care" data-ru="Специализированная педиатрическая помощь">Specialized pediatric care</p>
+              </div>
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="client-image">
+                  <img src="img/cardio bishkek.png" alt="Bishkek Cardio">
                 </div>
-                <h2>Bishkek Cardio</h2>
-                <p></p>
               </div>
-              <div class="col-md-4 wp4 delay-1s">
-                <div class="overlay-effect effects clearfix">
-                  <div class="img">
-                    <img src="img/medi.png" alt="Portfolio Item">                    
-                  </div>
+              <div class="card-back">
+                <h2 data-en="Bishkek Cardio" data-ru="Бишкек Кардио">Bishkek Cardio</h2>
+                <p class="client-description" data-en="Cardiovascular excellence center" data-ru="Центр передового опыта в кардиологии">Cardiovascular excellence center</p>
+              </div>
+            </div>
+          </div>
+          <div class="client-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="client-image">
+                  <img src="img/medi.png" alt="MEDI Clinic">
                 </div>
-                <h2>MEDI Clinic</h2>
-                <p></p>
               </div>
-            </li>
-          </ul>
+              <div class="card-back">
+                <h2 data-en="MEDI Clinic" data-ru="Клиника МЕДИ">MEDI Clinic</h2>
+                <p class="client-description" data-en="Comprehensive medical care" data-ru="Комплексная медицинская помощь">Comprehensive medical care</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
+  
   <section class="dark-bg text-center section-padding contact-wrap" id="contact">
     <a href="#top" class="up-btn"><i class="fa fa-chevron-up"></i></a>
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="arrow">Drop us a line</h1>
+          <h1 class="arrow" data-en="Drop us a line" data-ru="Свяжитесь с нами">Drop us a line</h1>
         </div>
       </div>
       <div class="row contact-details">
         <div class="col-md-4">
           <div class="light-box box-hover">
-            <h2><i class="fa fa-map-marker"></i><span>Address</span></h2>
-            <a href="https://maps.app.goo.gl/zMobTKjMyeT3nTd78" target="_blank">Gorkiy Str. 27/1, VEFA Center, room 704, Bishkek, Kyrgyzstan, 720005</a>
+            <h2><i class="fa fa-map-marker"></i><span data-en="Address" data-ru="Адрес">Address</span></h2>
+            <a href="https://maps.app.goo.gl/zMobTKjMyeT3nTd78" target="_blank" data-en="Gorkiy Str. 27/1, VEFA Center, room 704, Bishkek, Kyrgyzstan, 720005" data-ru="720005, Кыргызстан, г. Бишкек, ул. Горького 27/1, офис 704, ВЕФА Центр ">Gorkiy Str. 27/1, VEFA Center, room 704, Bishkek, Kyrgyzstan, 720005</a>
           </div>
         </div>
         <div class="col-md-4">
           <div class="light-box box-hover">
-            <h2><i class="fa fa-mobile"></i><span>Phone</span></h2>
-            <p><a href="tel:+996555407007">+996 555 407 007</a></p>
+            <h2><i class="fa fa-mobile"></i><span data-en="Phone" data-ru="Телефон">Phone</span></h2>
+            <p>+996 555 407 007</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="light-box box-hover">
-            <h2><i class="fa fa-paper-plane"></i><span>Email</span></h2>
+            <h2><i class="fa fa-paper-plane"></i><span data-en="Email" data-ru="Электронная почта">Email</span></h2>
             <p><a href="mailto:mnskan@gmail.com">mnskan@gmail.com</a></p>
           </div>
         </div>
@@ -316,7 +535,7 @@
           <ul class="legals">
             <li><a href="#about">About Us </a> </li>
             <li><a href="#services">Services</a> </li>
-            <li><a href="#contact">Contacts</a> </li>
+            <li><a href="#contact" data-en="Contacts" data-ru="Контакты">Contacts</a> </li>
           </ul>
         </div>
       </div>
@@ -330,6 +549,229 @@
   <script src="js/scripts.js"></script>
   <script src="js/jquery.flexslider.js"></script>
   <script src="js/modernizr.js"></script>
+  <script src="js/language-manager.js"></script>
+  <script src="js/floating-button.js"></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Kurt & Kurt",
+      "url": "https://kurtandkurt.kg",
+      "logo": "https://kurtandkurt.kg/img/logo.png",
+      "description": "Ведущий поставщик медицинского оборудования в Кыргызстане",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Горького 27/1, ВЕФА Центр, офис 704",
+        "addressLocality": "Бишкек",
+        "postalCode": "720005",
+        "addressCountry": "KG"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+996555407007",
+        "email": "mnskan@gmail.com",
+        "contactType": "sales",
+        "availableLanguage": ["Russian", "English"]
+      },
+      "sameAs": [
+        "https://t.me/KantemirovManas",
+        "https://wa.me/+996555407007"
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "category": "Medical Equipment",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "KGS",
+        "businessFunction": "https://schema.org/LeaseOut",
+        "availableDeliveryMethod": "https://schema.org/OnSiteInstallation"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow"
+      }
+    }
+  </script>
+  <script>
+    // Language switching functionality
+    function toggleLanguage() {
+      const currentLang = document.documentElement.getAttribute('lang');
+      const newLang = currentLang === 'en' ? 'ru' : 'en';
+      document.documentElement.setAttribute('lang', newLang);
+      
+      // Update language button text
+      const langBtn = document.querySelector('.current-lang');
+      langBtn.textContent = newLang.toUpperCase();
+      
+      // Update all text elements with language attributes
+      document.querySelectorAll('[data-en]').forEach(element => {
+        element.textContent = element.getAttribute(`data-${newLang}`);
+      });
+
+      // Update all text elements with language classes
+      const textElements = {
+        '.hero_title': {
+          en: 'Kurt & Kurt',
+          ru: 'Kurt & Kurt'
+        },
+        '.hero_desc': {
+          en: 'offers unique solutions based on exclusive and long-term distribution agreements with the world\'s leading manufacturers, on invaluable experience and high level of staff skills.',
+          ru: 'предлагает уникальные решения, основанные на эксклюзивных и долгосрочных дистрибьюторских соглашениях с ведущими мировыми производителями, на бесценном опыте и высоком уровне квалификации персонала.'
+        },
+
+        '.intro .arrow': {
+          en: 'About our company',
+          ru: 'О нашей компании'
+        },
+        '.features .arrow': {
+          en: 'Our services',
+          ru: 'Наши услуги'
+        },
+        '#servicesSlider .arrow': {
+          en: 'Our mission',
+          ru: 'Наша миссия'
+        },
+        '#portfolioSlider .arrow': {
+          en: 'Our clients',
+          ru: 'Наши клиенты'
+        },
+        '.contact-wrap .arrow': {
+          en: 'Drop us a line',
+          ru: 'Свяжитесь с нами'
+        },
+        '.intro p': {
+          en: `Kurt&Kurt LLC was established in 2008 to promote medical equipment in the market.
+            Our company carries out import-export and exclusive representative activities providing turnkey solutions
+            for hospitals and private clinics, as well as after-sales technical service to its customers all over the country.
+            After years of experience in the market, Kurt&Kurt has achieved a leading position in the field of radiology.
+            This was mainly achieved by ensuring maximum customer satisfaction.`,
+          ru: `ОсОО Курт энд Курт основана в 2008 году для продвижения медицинского оборудования на рынке.
+            Наша компания осуществляет импортно-экспортную и эксклюзивную представительскую деятельность, предоставляя готовые решения
+            для больниц и частных клиник, а также постпродажное техническое обслуживание своим клиентам по всей стране.
+            После многих лет работы на рынке ОсОО Курт энд Курт достигла лидирующих позиций в области радиологии.
+            Это было достигнуто в основном за счет обеспечения максимальной удовлетворенности клиентов.`
+        },
+        // Services section translations
+        '.features h2:contains("Supply")': {
+          en: 'Supply',
+          ru: 'Поставка'
+        },
+        '.features h2:contains("Leasing")': {
+          en: 'Leasing',
+          ru: 'Лизинг'
+        },
+        '.features h2:contains("Service")': {
+          en: 'Service',
+          ru: 'Сервис'
+        },
+        '.features h2:contains("Control")': {
+          en: 'Control',
+          ru: 'Контроль'
+        },
+        '.features h2:contains("Training")': {
+          en: 'Training',
+          ru: 'Обучение'
+        },
+        '.features h2:contains("Registration")': {
+          en: 'Registration',
+          ru: 'Регистрация'
+        },
+        // Services descriptions
+        '.features .wp2:nth-child(1) p': {
+          en: 'Professional supply of cutting-edge medical diagnostic equipment from world-leading manufacturers. We ensure complete documentation, customs clearance, and installation services.',
+          ru: 'Профессиональная поставка современного медицинского диагностического оборудования от ведущих мировых производителей. Мы обеспечиваем полное документальное сопровождение, таможенную очистку и услуги по установке.'
+        },
+        '.features .wp2:nth-child(2) p': {
+          en: 'Flexible financing solutions with equipment leasing and leaseback options. We work with major financial institutions to provide the most favorable terms for our clients.',
+          ru: 'Гибкие финансовые решения с возможностью лизинга и возвратного лизинга оборудования. Мы работаем с крупными финансовыми учреждениями, чтобы предоставить нашим клиентам наиболее выгодные условия.'
+        },
+        '.features .wp2:nth-child(3) p': {
+          en: 'Comprehensive warranty and post-warranty service with 24/7 technical support. Our certified engineers handle repairs of any complexity, ensuring minimal downtime for your equipment.',
+          ru: 'Комплексное гарантийное и постгарантийное обслуживание с круглосуточной технической поддержкой. Наши сертифицированные инженеры выполняют ремонт любой сложности, обеспечивая минимальное время простоя оборудования.'
+        },
+        '.features .wp2:nth-child(4) p': {
+          en: 'Monitoring of the technical condition of medical equipment',
+          ru: 'Мониторинг технического состояния медицинского оборудования'
+        },
+        '.features .wp2:nth-child(5) p': {
+          en: 'Training for physicians and operators',
+          ru: 'Обучение врачей и операторов'
+        },
+        '.features .wp2:nth-child(6) p': {
+          en: 'Registration of medical devices with state authorities',
+          ru: 'Регистрация медицинских изделий в государственных органах'
+        },
+        // Mission section translations
+        '#servicesSlider .slides p:nth-of-type(1)': {
+          en: 'Provide customers with high-quality equipment from the world\'s leading manufacturers. Treat customers not as buyers, but as partners.',
+          ru: 'Обеспечивать клиентов высококачественным оборудованием от ведущих мировых производителей. Относиться к клиентам не как к покупателям, а как к партнерам.'
+        },
+        '#servicesSlider .slides p:nth-of-type(2)': {
+          en: 'To continuously improve the quality of technical service and after-sales support.',
+          ru: 'Постоянно повышать качество технического обслуживания и постпродажной поддержки.'
+        },
+        '#servicesSlider .slides p:nth-of-type(3)': {
+          en: 'We believe that success is not a final destination, but a journey in itself.',
+          ru: 'Мы верим, что успех - это не конечный пункт назначения, а путешествие.'
+        }
+      };
+
+      for (const [selector, texts] of Object.entries(textElements)) {
+        document.querySelectorAll(selector).forEach(element => {
+          if (texts[newLang]) {
+            element.textContent = texts[newLang];
+          }
+        });
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+
+      const contactBtn = document.querySelector('.learn-more-btn');
+      const heroSection = document.getElementById('hero');
+      let isFloating = false;
+      const originalPosition = {
+        parent: contactBtn.parentElement,
+        nextSibling: contactBtn.nextSibling
+      };
+
+      function restoreButton() {
+        if (isFloating) {
+          contactBtn.classList.add('hidden');
+          setTimeout(() => {
+            contactBtn.classList.remove('floating', 'hidden');
+            originalPosition.parent.insertBefore(contactBtn, originalPosition.nextSibling);
+          }, 300);
+          isFloating = false;
+        }
+      }
+
+      function makeButtonFloat() {
+        if (!isFloating) {
+          contactBtn.classList.add('floating');
+          document.body.appendChild(contactBtn);
+          isFloating = true;
+          setTimeout(() => contactBtn.classList.remove('hidden'), 10);
+        }
+      }
+
+      window.addEventListener('scroll', function() {
+        const heroRect = heroSection.getBoundingClientRect();
+        const isHeroVisible = heroRect.top < window.innerHeight && heroRect.bottom > 0;
+
+        if (isHeroVisible) {
+          restoreButton();
+        } else if (window.scrollY > heroRect.bottom && !isFloating) {
+          makeButtonFloat();
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
